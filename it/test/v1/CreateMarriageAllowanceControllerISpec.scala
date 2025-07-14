@@ -27,6 +27,10 @@ import play.api.test.Helpers._
 
 class CreateMarriageAllowanceControllerISpec extends IntegrationBaseSpec {
 
+  override def servicesConfig: Map[String, Any] = Map(
+    "feature-switch.ifs_hip_migration_1639.enabled" -> false
+  ) ++ super.servicesConfig
+
   private trait Test {
 
     val nino1: String         = "AA123456A"

@@ -20,6 +20,7 @@ import com.google.common.base.Charsets
 import config.MockAppConfig
 import mocks.MockHttpClient
 import org.scalamock.handlers.CallHandler
+import play.api.Configuration
 import play.api.http.{HeaderNames, MimeTypes, Status}
 import play.api.libs.json.{Json, Writes}
 import support.UnitSpec
@@ -123,7 +124,7 @@ trait ConnectorSpec extends UnitSpec with Status with MimeTypes with HeaderNames
     MockedAppConfig.ifs1Token returns "ifs1-token"
     MockedAppConfig.ifs1Env returns "ifs1-environment"
     MockedAppConfig.ifs1EnvironmentHeaders returns Some(allowedHeaders)
-
+    MockedAppConfig.featureSwitches returns Configuration("ifs_hip_migration_1639.enabled" -> false)
   }
 
   protected trait Ifs2Test extends ConnectorTest {
@@ -140,7 +141,7 @@ trait ConnectorSpec extends UnitSpec with Status with MimeTypes with HeaderNames
     MockedAppConfig.ifs2Token returns "ifs2-token"
     MockedAppConfig.ifs2Env returns "ifs2-environment"
     MockedAppConfig.ifs2EnvironmentHeaders returns Some(allowedHeaders)
-
+    MockedAppConfig.featureSwitches returns Configuration("ifs_hip_migration_1639.enabled" -> false)
   }
 
   protected trait HipTest extends ConnectorTest {
@@ -162,6 +163,7 @@ trait ConnectorSpec extends UnitSpec with Status with MimeTypes with HeaderNames
     MockedAppConfig.hipClientId returns clientId
     MockedAppConfig.hipClientSecret returns clientSecret
     MockedAppConfig.hipEnvironmentHeaders returns Some(allowedHeaders.filterNot(Set("Content-Type")))
+    MockedAppConfig.featureSwitches returns Configuration("ifs_hip_migration_1639.enabled" -> true)
 
   }
 

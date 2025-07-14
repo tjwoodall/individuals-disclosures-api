@@ -27,6 +27,10 @@ import play.api.test.Helpers._
 
 class DeleteDisclosuresControllerISpec extends IntegrationBaseSpec {
 
+  override def servicesConfig: Map[String, Any] = Map(
+    "feature-switch.ifs_hip_migration_1639.enabled" -> false
+  ) ++ super.servicesConfig
+
   private trait Test {
 
     val nino: String    = "AA123456A"

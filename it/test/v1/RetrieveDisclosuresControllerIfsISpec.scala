@@ -26,14 +26,18 @@ import play.api.libs.ws.{WSRequest, WSResponse}
 import play.api.test.Helpers._
 import v1.fixtures.RetrieveDisclosuresControllerFixture
 
-class RetrieveDisclosuresControllerISpec extends IntegrationBaseSpec {
+class RetrieveDisclosuresControllerIfsISpec extends IntegrationBaseSpec {
+
+  override def servicesConfig: Map[String, Any] = Map(
+    "feature-switch.ifs_hip_migration_1639.enabled" -> false
+  ) ++ super.servicesConfig
 
   private trait Test {
 
     val nino: String          = "AA123456A"
     val taxYear: String       = "2021-22"
 
-    val ifsResponse: JsValue = RetrieveDisclosuresControllerFixture.fullRetrieveDisclosuresResponse
+    val ifsResponse: JsValue = RetrieveDisclosuresControllerFixture.fullIfsRetrieveDisclosuresResponse
     val mtdResponse: JsValue = RetrieveDisclosuresControllerFixture.mtdResponseWithHateoas(nino, taxYear)
 
     private def uri: String = s"/$nino/$taxYear"
