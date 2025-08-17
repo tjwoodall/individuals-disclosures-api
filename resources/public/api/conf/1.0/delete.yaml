@@ -22,6 +22,10 @@ parameters:
   - $ref: './common/headers.yaml#/components/parameters/authorizationWriteScopeHeader'
   - $ref: './common/headers.yaml#/components/parameters/testScenarioHeader'
 
+security:
+  - User-Restricted:
+      - write:self-assessment
+
 responses:
   "204":
     description: Success
