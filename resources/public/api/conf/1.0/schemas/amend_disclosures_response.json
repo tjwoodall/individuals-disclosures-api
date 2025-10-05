@@ -1,5 +1,4 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
   "title": 	"Create and Amend Disclosures Response",
   "description":"Create and Amend Disclosures Response",
   "type": "object",
