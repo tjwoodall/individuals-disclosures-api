@@ -45,8 +45,7 @@ responses:
           $ref: './schemas/retrieve_disclosures_response.json'
         examples:
           Request:
-            value:
-              $ref: './examples/disclosures/retrieve_response.json'
+            externalValue: './examples/disclosures/retrieve_response.json'
 
   "400":
     description: Bad request
