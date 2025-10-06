@@ -35,8 +35,7 @@ requestBody:
         $ref: './schemas/amend_disclosures_request.json'
       examples:
         Request:
-          value:
-            $ref: './examples/disclosures/amend_request.json'
+          externalValue: './examples/disclosures/amend_request.json'
 
 responses:
   "200":
@@ -56,8 +55,7 @@ responses:
           $ref: './schemas/amend_disclosures_response.json'
         examples:
           Request:
-            value:
-              $ref: './examples/disclosures/amend_response.json'
+            externalValue: './examples/disclosures/amend_response.json'
 
   "400":
     description: Bad request
