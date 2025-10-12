@@ -37,7 +37,7 @@
         "class2VoluntaryContributions": {
           "type": "boolean",
           "description": "Indicates whether Voluntary Class 2 contributions have been captured. The value must be true if this is the case.",
-          "example": "true"
+          "example": true
         }
       }
     },
