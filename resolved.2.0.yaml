@@ -335,17 +335,14 @@ paths:
         - write:self-assessment
   /individuals/disclosures/{nino}/{taxYear}:
     get:
-      summary: Retrieve Disclosures
       security:
       - User-Restricted:
         - read:self-assessment
     put:
-      summary: Create and Amend Disclosures
       security:
       - User-Restricted:
         - write:self-assessment
     delete:
-      summary: Delete Disclosures
       security:
       - User-Restricted:
         - write:self-assessment
