@@ -136,10 +136,7 @@ paths:
             examples:
               Request:
                 value:
-                  spouseOrCivilPartnerNino: TC663795B
-                  spouseOrCivilPartnerFirstName: John
-                  spouseOrCivilPartnerSurname: Smith
-                  spouseOrCivilPartnerDateOfBirth: '1987-10-18'
+                  $ref: ./examples/marriageAllowance/create_marriageAllowance_request.json
       responses:
         '201':
           description: Success
@@ -337,10 +334,10 @@ paths:
                     message: The client and/or agent is not authorised
   /individuals/disclosures/{nino}/{taxYear}:
     get:
-      summary: Retrieve Disclosures
       security:
         - User-Restricted:
             - read:self-assessment
+      summary: Retrieve Disclosures
       description: |
         This endpoint allows a developer to retrieve data related to disclosures, for a given tax year. A National Insurance 
         number and tax year must be provided.
@@ -468,12 +465,7 @@ paths:
               examples:
                 Request:
                   value:
-                    submittedOn: '2020-07-06T09:37:17Z'
-                    taxAvoidance:
-                      - srn: '14211123'
-                        taxYear: 2020-21
-                    class2Nics:
-                      class2VoluntaryContributions: true
+                    $ref: ./examples/disclosures/retrieve_response.json
         '400':
           description: Bad request
           headers:
@@ -632,10 +624,10 @@ paths:
                     code: MATCHING_RESOURCE_NOT_FOUND
                     message: Matching resource not found
     put:
-      summary: Create and Amend Disclosures
       security:
         - User-Restricted:
             - write:self-assessment
+      summary: Create and Amend Disclosures
       description: "This endpoint allows a developer to create and amend data related to disclosures, for a given tax year. A National \nInsurance number and tax year must be provided.\n\n### Test data\nScenario simulations using Gov-Test-Scenario headers is only available in the sandbox environment.\n\n| Header Value (Gov-Test-Scenario)      | Scenario                                                                                        |\n|---------------------------------------|-------------------------------------------------------------------------------------------------|\n| N/A - DEFAULT                         | Simulates success response.                                                                     |\n| VOLUNTARY_CLASS2_CANNOT_BE_CHANGED    | Simulates the scenario where Voluntary Class 2 NICs cannot be changed.                          |                                                 \n| NOT_FOUND                             | Simulates the scenario where no data is found.                                                  |\n| STATEFUL                              | Performs a stateful create or update.                                                           |   \n| OUTSIDE_AMENDMENT_WINDOW              | Simulates the scenario where request cannot be completed as it is outside the amendment window.\t|   \n"
       tags:
         - Disclosures
@@ -715,11 +707,7 @@ paths:
             examples:
               Request:
                 value:
-                  taxAvoidance:
-                    - srn: '14211123'
-                      taxYear: 2020-21
-                  class2Nics:
-                    class2VoluntaryContributions: true
+                  $ref: ./examples/disclosures/amend_request.json
       responses:
         '204':
           description: Success (No Content)
@@ -931,10 +919,10 @@ paths:
                     The matching resource is not found.
                   value: *ref_19
     delete:
-      summary: Delete Disclosures
       security:
         - User-Restricted:
             - write:self-assessment
+      summary: Delete Disclosures
       description: "This endpoint allows a developer to delete data related to disclosures, for a given tax year. A National Insurance \nnumber and tax year must be provided.\n\n### Test data\nScenario simulations using Gov-Test-Scenario headers is only available in the sandbox environment.\n\n| Header Value (Gov-Test-Scenario)      | Scenario                                                                                        |\n|---------------------------------------|-------------------------------------------------------------------------------------------------|\n| N/A - DEFAULT                         | Simulates success response.                                                                     |                                                \n| NOT_FOUND                             | Simulates the scenario where no data is found.                                                  |\n| STATEFUL                              | Performs a stateful delete.                                                                     |\n| OUTSIDE_AMENDMENT_WINDOW              | Simulates the scenario where request cannot be completed as it is outside the amendment window.\t|\n"
       tags:
         - Disclosures
