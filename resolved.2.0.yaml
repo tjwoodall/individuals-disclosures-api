@@ -112,13 +112,15 @@ paths:
                   maxLength: 35
                   minLength: 1
                   type: string
-                  description: Your spouse or civil partner's first name.
+                  description: Your spouse or civil partner's first name. Must not
+                    be empty or contain only whitespace.
                   example: John
                 spouseOrCivilPartnerSurname:
                   maxLength: 35
                   minLength: 1
                   type: string
-                  description: Your spouse or civil partner's surname.
+                  description: Your spouse or civil partner's surname. Must not be
+                    empty or contain only whitespace.
                   example: Smith
                 spouseOrCivilPartnerDateOfBirth:
                   type: string
@@ -364,13 +366,15 @@ components:
           maxLength: 35
           minLength: 1
           type: string
-          description: Your spouse or civil partner's first name.
+          description: Your spouse or civil partner's first name. Must not be empty
+            or contain only whitespace.
           example: John
         spouseOrCivilPartnerSurname:
           maxLength: 35
           minLength: 1
           type: string
-          description: Your spouse or civil partner's surname.
+          description: Your spouse or civil partner's surname. Must not be empty or
+            contain only whitespace.
           example: Smith
         spouseOrCivilPartnerDateOfBirth:
           type: string
