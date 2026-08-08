@@ -35,8 +35,7 @@ post:
           $ref: './schemas/create_marriageAllowance_request.json'
         examples:
           Request:
-            value:
-              $ref: './examples/marriageAllowance/create_marriageAllowance_request.json'
+            externalValue: './examples/marriageAllowance/create_marriageAllowance_request.json'
 
   responses:
     "201":
