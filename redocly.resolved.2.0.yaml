@@ -620,7 +620,7 @@ paths:
                 MATCHING_RESOURCE_NOT_FOUND:
                   description: |
                     The matching resource is not found.
-                  value: &ref_19
+                  value: &ref_20
                     code: MATCHING_RESOURCE_NOT_FOUND
                     message: Matching resource not found
     put:
@@ -821,7 +821,7 @@ paths:
                 RULE_OUTSIDE_AMENDMENT_WINDOW:
                   description: |
                     The request cannot be completed as you are outside the amendment window.
-                  value: &ref_20
+                  value: &ref_19
                     code: RULE_OUTSIDE_AMENDMENT_WINDOW
                     message: You are outside the amendment window
                 RULE_INCORRECT_GOV_TEST_SCENARIO:
@@ -915,8 +915,10 @@ paths:
               examples:
                 MATCHING_RESOURCE_NOT_FOUND:
                   description: |
-                    The matching resource is not found.
-                  value: *ref_19
+                    The self-employment income source could not be found.
+                  value:
+                    code: MATCHING_RESOURCE_NOT_FOUND
+                    message: Self-employment income source not found
     delete:
       security:
         - User-Restricted:
@@ -1048,7 +1050,7 @@ paths:
                 RULE_OUTSIDE_AMENDMENT_WINDOW:
                   description: |
                     The request cannot be completed as you are outside the amendment window.
-                  value: *ref_20
+                  value: *ref_19
                 RULE_INCORRECT_GOV_TEST_SCENARIO:
                   description: |
                     The request did not match any available Sandbox data. Check that the supplied Gov-Test-Scenario is correct for 
@@ -1141,7 +1143,7 @@ paths:
                 MATCHING_RESOURCE_NOT_FOUND:
                   description: |
                     The matching resource is not found.
-                  value: *ref_19
+                  value: *ref_20
 components:
   securitySchemes:
     User-Restricted:
