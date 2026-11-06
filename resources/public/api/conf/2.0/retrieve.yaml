@@ -44,8 +44,7 @@ responses:
         examples:
           
           Request:
-            value:
-              $ref: './examples/disclosures_retrieve/def1/retrieve_response.json'
+            externalValue: './examples/disclosures_retrieve/def1/retrieve_response.json'
             
 
   "400":

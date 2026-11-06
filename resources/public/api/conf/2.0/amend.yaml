@@ -35,8 +35,7 @@ requestBody:
       examples:
         
         Request:
-          value:
-            $ref: './examples/disclosures_amend/def1/amend_request.json'
+          externalValue: './examples/disclosures_amend/def1/amend_request.json'
         
 
 responses:
