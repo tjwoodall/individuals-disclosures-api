@@ -436,9 +436,9 @@ paths:
                     example: '2020-07-06T09:37:17.000Z'
                   taxAvoidance:
                     type: array
+                    description: Details of tax avoidance scheme.
                     items:
                       type: object
-                      description: Details of tax avoidance scheme
                       properties:
                         srn:
                           type: string
@@ -447,19 +447,21 @@ paths:
                           pattern: ^[0-9]{8}$
                         taxYear:
                           type: string
-                          description: The tax year in which the expected advantage arises. Date in the format `YYYY-YY`
+                          description: The tax year in which the expected advantage arises, in the format `YYYY-YY`
                           example: 2020-21
                       required:
                         - srn
                         - taxYear
+                      additionalProperties: false
                   class2Nics:
                     type: object
-                    description: Object containing the Voluntary Class 2 National Insurance Contributions toggle
+                    description: Object containing the Voluntary Class 2 National Insurance Contributions toggle.
                     properties:
                       class2VoluntaryContributions:
                         type: boolean
                         description: Indicates whether Voluntary Class 2 contributions have been captured. The value must be true if this is the case.
                         example: true
+                    additionalProperties: false
                 required:
                   - submittedOn
               examples:
@@ -679,7 +681,7 @@ paths:
               properties:
                 taxAvoidance:
                   type: array
-                  description: Details of tax avoidance scheme
+                  description: Details of tax avoidance scheme.
                   items:
                     type: object
                     properties:
@@ -690,23 +692,25 @@ paths:
                         pattern: ^[0-9]{8}$
                       taxYear:
                         type: string
-                        description: The tax year in which the expected advantage arises. Date in the format `YYYY-YY`
+                        description: The tax year in which the expected advantage arises, in the format `YYYY-YY`
                         example: 2020-21
                     required:
                       - srn
                       - taxYear
+                    additionalProperties: false
                 class2Nics:
                   type: object
-                  description: Object containing the Voluntary Class 2 National Insurance Contributions toggle
+                  description: Object containing the Voluntary Class 2 National Insurance Contributions toggle.
                   properties:
                     class2VoluntaryContributions:
                       type: boolean
                       description: Indicates whether Voluntary Class 2 contributions are to be captured. The value can only be set to true.
                       example: true
+                  additionalProperties: false
             examples:
               Request:
                 value:
-                  $ref: ./examples/disclosures/amend_request.json
+                  $ref: ./examples/disclosures_amend/def1/amend_request.json
       responses:
         '204':
           description: Success (No Content)
