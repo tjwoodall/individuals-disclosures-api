@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title":  "Create and Amend Disclosures Request" ,
+  "description": "Create and Amend Disclosures Request",
+  "type": "object",
+  "properties": {
+    "taxAvoidance": {"$ref": "../amend_disclosures_definitions.json#/definitions/taxAvoidance"},
+    "class2Nics": {"$ref": "../amend_disclosures_definitions.json#/definitions/class2Nics"}
+  }
+}
